@@ -1,0 +1,12 @@
+###
+POST localhost:8080/login
+Content-Type: application/json
+
+{
+  "login": "zlylogin",
+  "password": "password",
+}
+
+###
+GET localhost:8080/books
+Authorization: Basic user 57009c56-9872-489c-bca7-6005ff1114ca
