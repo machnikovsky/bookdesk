@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>pl.machnikovsky</groupId>
-    <artifactId>bookdesk</artifactId>
+    <artifactId>bookdesk-backend</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>bookdesk</name>
+    <name>bookdesk-backend</name>
     <description>Spring Boot backend for Book Desk</description>
     <properties>
         <java.version>11</java.version>
