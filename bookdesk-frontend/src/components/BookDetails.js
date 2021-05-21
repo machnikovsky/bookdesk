@@ -8,7 +8,7 @@ import { encode } from "base-64";
 const BookDetails = () => {
 
     const URL = 'http://localhost:8080/api/books/';
-    const URLADD = 'http://localhost:8080/add';
+    const URLADD = 'http://localhost:8080/books/add';
 
 
     const { id } = useParams();

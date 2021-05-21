@@ -21,9 +21,12 @@ const useFetch = (url, HTTPmethod) => {
               })
         })
         .then(res => {
+            console.log(url);
+            console.log(res);
             return res.json();
          })
         .then(data => {
+            console.log(data);
             setData(data);
         });
     }, [])

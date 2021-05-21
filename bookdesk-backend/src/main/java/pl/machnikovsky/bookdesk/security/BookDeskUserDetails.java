@@ -4,8 +4,10 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import pl.machnikovsky.bookdesk.model.BookDeskUser;
+import pl.machnikovsky.bookdesk.model.UserRole;
 
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.stream.Collectors;
 
 public class BookDeskUserDetails implements UserDetails {
@@ -18,11 +20,7 @@ public class BookDeskUserDetails implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return user
-                .getRoles()
-                .stream()
-                .map(SimpleGrantedAuthority::new)
-                .collect(Collectors.toSet());
+        return user.getRoles();
     }
 
     @Override

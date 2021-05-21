@@ -1,10 +1,9 @@
 package pl.machnikovsky.bookdesk.model;
 
+import org.springframework.data.repository.cdi.Eager;
+
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 public class BookDeskUser {
@@ -16,8 +15,12 @@ public class BookDeskUser {
     private String username;
     private String password;
 
-    @ElementCollection(fetch = FetchType.EAGER)
-    private Set<String> roles = new HashSet<>();
+    @ElementCollection(targetClass = UserRole.class, fetch = FetchType.EAGER)
+    @Enumerated(EnumType.STRING)
+    @CollectionTable(name="book_desk_user_roles")
+    @Column(name="role")
+    private Collection<UserRole> roles = new HashSet<>();
+
 
     @OneToMany
     private List<Book> books;
@@ -31,7 +34,7 @@ public class BookDeskUser {
     public BookDeskUser(String username, String password) {
         this.username = username;
         this.password = password;
-        this.roles = Set.of("ROLE_USER");
+        this.roles = Set.of(UserRole.USER);
         this.books = new ArrayList<>();
     }
 
@@ -58,11 +61,11 @@ public class BookDeskUser {
         this.id = id;
     }
 
-    public Set<String> getRoles() {
+    public Collection<UserRole> getRoles() {
         return roles;
     }
 
-    public void setRoles(Set<String> roles) {
+    public void setRoles(Collection<UserRole> roles) {
         this.roles = roles;
     }
 

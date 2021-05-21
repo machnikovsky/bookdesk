@@ -17,7 +17,7 @@ const MyBooks = () => {
             {
                 loggedInUser ?
                 (  
-                <div>      
+                <div>    
                 <h1 style={{textAlign: "center"}}>Moje książki</h1>
                 {books && <BookList books={books} />}
                 </div>

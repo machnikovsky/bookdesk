@@ -5,7 +5,7 @@ import useFetch from './useFetch';
 
 const HomePage = () => {
 
-    const books = useFetch('http://localhost:8080/api/books', 'GET');
+    const books = useFetch('http://localhost:8080/api/books/all', 'GET');
     const loggedInUser = localStorage.getItem("user");
 
 

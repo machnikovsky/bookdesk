@@ -3,10 +3,42 @@ POST localhost:8080/login
 Content-Type: application/json
 
 {
-  "login": "zlylogin",
-  "password": "password",
+  "login": "kuba",
+  "password": "haslo"
 }
 
 ###
 GET localhost:8080/books
-Authorization: Basic user 57009c56-9872-489c-bca7-6005ff1114ca
+Authorization: Basic kuba haslo
+
+
+###
+POST localhost:8080/register
+Content-Type: application/json
+
+{
+  "login": "kuba",
+  "password": "haslo"
+}
+
+
+###
+PUT localhost:8080/api/books/3
+Authorization: Basic kuba haslo
+Content-Type: application/json
+
+    {
+      "id": 3,
+      "author": "Stephen King",
+      "title": "To",
+      "longSummary": "Bardzo długi opis",
+      "shortSummary": "To jest to",
+      "url": "https://cdn-lubimyczytac.pl/upload/books/4892000/4892189/744634-352x500.jpg"
+    }
+
+
+
+###
+GET localhost:8080/api/books/my
+Authorization: Basic kuba haslo
+Content-Type: application/json
